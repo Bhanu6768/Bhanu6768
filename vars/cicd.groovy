@@ -8,8 +8,9 @@ def mavenBuild()
 }
 def tomcatDeploy(jobname,ip,context)
 {
-  
-                    deploy adapters: [tomcat9(credentialsId: '858b259f-5c02-45d4-8512-5b9ec0d78fa8', path: '', url: 'http://172.31.9.21:8080')], contextPath: 'mytextapp', war: '**/*.war'
-  
-
+  deploy adapters: [tomcat9(credentialsId: '858b259f-5c02-45d4-8512-5b9ec0d78fa8', path: '', url: 'http://172.31.9.21:8080')], contextPath: 'mytextapp', war: '**/*.war'
+}
+def runSelenium(jobname)
+{
+   sh "java -jar /home/ubuntu/.jenkins/workspace/${jobname}/testing.jar" 
 }
