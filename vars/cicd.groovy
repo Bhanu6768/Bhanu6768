@@ -8,7 +8,8 @@ def mavenBuild()
 }
 def tomcatDeploy(jobname,ip,context)
 {
-   sh "scp /home/ubuntu/.jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ip}/home/ubuntu/tomcat9/webapps/${context}.war"
   
+  
+  deploy adapters: [tomcat9(credentialsId: '858b259f-5c02-45d4-8512-5b9ec0d78fa8', path: ${jobname}'', url: 'http://${ip}:8080')], contextPath: ${context}, war: '**/*.war'
 
 }
