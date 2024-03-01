@@ -1,4 +1,4 @@
-def gitDownload(repo)
+def gitDownload(repo) //it has a function called gitdownload  
 {
   git "https://github.com/intelliqittrainings/${repo}.git"
 }
